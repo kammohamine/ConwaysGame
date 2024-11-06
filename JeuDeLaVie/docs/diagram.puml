@@ -38,7 +38,7 @@ class Cell {
 }
 
 
-class AbstractPlayer {
+abstract class AbstractPlayer {
     - points: int
     - name: String
     - isPlayerAlive: Boolean
@@ -49,8 +49,31 @@ class AbstractPlayer {
 
     }
 
+class AIPlayer {
+    - points: int
+    - AI: String
+    - isPlayerAlive: Boolean
+    + AbstractPlayer(name: String): String
+    + getPoints: int
+    + addPoints(int): int
+    + makeMove()
+}
+
+class LambdaPlayer {
+    - points: int
+    - AI: String
+    - isPlayerAlive: Boolean
+    + AbstractPlayer(name: String): String
+    + getPoints: int
+    + addPoints(int): int
+    + makeMove()
+}
+
 GameOfLife --> Grid : "contient une"
 Grid --* Cell : "composé de plusieurs"
 GameOfLife --> AbstractPlayer : "contient plusieurs"
+AbstractPlayer --> AIPlayer : "extends"
+AbstractPlayer --> LambdaPlayer : "extends"
+
 
 @enduml
