@@ -30,8 +30,6 @@ public class GameOfLife {
     }
 
     public void setInitialPattern(String pattern) {
-        // Placeholder pour définir un pattern initial. 
-        // Implémente cette méthode pour positionner des cellules vivantes selon le pattern.
     }
 
     public void runSimulation() {
@@ -39,7 +37,7 @@ public class GameOfLife {
             displayGrid();
             nextGeneration();
             try {
-                Thread.sleep(500); // Pause pour voir chaque génération
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -47,7 +45,6 @@ public class GameOfLife {
     }
 
     public boolean hasStabilized() {
-        // Placeholder pour vérifier si le jeu a atteint un état stable
         return false;
     }
 }

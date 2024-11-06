@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GameOfLifeGUI extends JFrame {
-    private final int CELL_SIZE = 20;  // Taille de chaque cellule en pixels
+    private final int CELL_SIZE = 20;
     private final Grid grid;
     private JPanel gridPanel;
     private Timer timer;
@@ -29,10 +29,8 @@ public class GameOfLifeGUI extends JFrame {
         gridPanel.setPreferredSize(new Dimension(cols * CELL_SIZE, rows * CELL_SIZE));
         add(gridPanel, BorderLayout.CENTER);
 
-        // Initialise la grille avec des cellules aléatoires
         grid.initializeGrid();
 
-        // Crée un timer pour avancer à la génération suivante toutes les 500 ms
         timer = new Timer(500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,9 +45,9 @@ public class GameOfLifeGUI extends JFrame {
             for (int j = 0; j < grid.getCols(); j++) {
                 Cell cell = grid.getCell(i, j);
                 if (cell.isAlive()) {
-                    g.setColor(Color.BLACK);  // Couleur des cellules vivantes
+                    g.setColor(Color.WHITE);  // Couleur des cellules vivantes
                 } else {
-                    g.setColor(Color.WHITE);  // Couleur des cellules mortes
+                    g.setColor(Color.BLACK);  // Couleur des cellules mortes
                 }
                 g.fillRect(j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE);
                 g.setColor(Color.GRAY);  // Bordure de la grille
@@ -59,7 +57,7 @@ public class GameOfLifeGUI extends JFrame {
     }
 
     public void startSimulation() {
-        timer.start();  // Démarre la simulation
+        timer.start();
     }
 
     public static void main(String[] args) {

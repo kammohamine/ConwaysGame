@@ -27,8 +27,7 @@ public class Grid {
             List<Cell> row = new ArrayList<>();
             for (int j = 0; j < cols; j++) {
                 Cell cell = new Cell();
-                // Initialise environ 30% des cellules comme vivantes de manière aléatoire
-                if (Math.random() > 0.7) {  // Ajuste la probabilité pour plus ou moins de cellules vivantes
+                if (Math.random() > 0.7) {
                     cell.setAlive(true);
                 }
                 row.add(cell);
@@ -61,7 +60,6 @@ public class Grid {
     }
 
     public void updateGrid() {
-        // Détermine l’état suivant de chaque cellule en fonction de ses voisins
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 Cell cell = cells.get(i).get(j);
@@ -69,7 +67,6 @@ public class Grid {
                 cell.determineNextState(liveNeighbors);
             }
         }
-        // Applique l’état suivant pour chaque cellule
         for (List<Cell> row : cells) {
             for (Cell cell : row) {
                 cell.updateState();
