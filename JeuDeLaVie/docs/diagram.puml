@@ -1,0 +1,43 @@
+@startuml
+
+class GameOfLife {
+    - grid: Grid
+    - generation: int
+    - isRunning: Boolean
+    + GameOfLife(rows: int, cols: int)
+    + initialize()
+    + start()
+    + nextGeneration()
+    + displayGrid()
+    + setInitialPattern(pattern: String)
+    + runSimulation()
+    + hasStabilized(): Boolean
+}
+
+class Grid {
+    - cells: List<List<Cell>>
+    - rows: int
+    - cols: int
+    + Grid(rows: int, cols: int)
+    + initializeGrid()
+    + getCell(x: int, y: int): Cell
+    + countLiveNeighbors(x: int, y: int): int
+    + updateGrid()
+    + isInBounds(x: int, y: int): Boolean
+    + display()
+}
+
+class Cell {
+    - isAlive: Boolean
+    - nextState: Boolean
+    + Cell()
+    + isAlive(): Boolean
+    + setAlive(isAlive: Boolean)
+    + determineNextState(liveNeighbors: int)
+    + updateState()
+}
+
+GameOfLife --> Grid : "contient une"
+Grid *-- Cell : "composé de plusieurs"
+
+@enduml
