@@ -1,4 +1,4 @@
-@startuml
+@startuml diagram
 
 class GameOfLife {
     - grid: Grid
@@ -37,7 +37,20 @@ class Cell {
     + updateState()
 }
 
+
+class AbstractPlayer {
+    - points: int
+    - name: String
+    - isPlayerAlive: Boolean
+    + AbstractPlayer(name: String): String
+    + getPoints: int
+    + addPoints(int): int
+    + makeMove()
+
+    }
+
 GameOfLife --> Grid : "contient une"
-Grid *-- Cell : "composé de plusieurs"
+Grid --* Cell : "composé de plusieurs"
+GameOfLife --> AbstractPlayer : "contient plusieurs"
 
 @enduml
