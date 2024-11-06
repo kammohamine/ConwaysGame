@@ -21,13 +21,17 @@ public class Grid {
     public int getCols() {
         return cols;
     }
-    
 
     public void initializeGrid() {
         for (int i = 0; i < rows; i++) {
             List<Cell> row = new ArrayList<>();
             for (int j = 0; j < cols; j++) {
-                row.add(new Cell());
+                Cell cell = new Cell();
+                // Initialise environ 30% des cellules comme vivantes de manière aléatoire
+                if (Math.random() > 0.7) {  // Ajuste la probabilité pour plus ou moins de cellules vivantes
+                    cell.setAlive(true);
+                }
+                row.add(cell);
             }
             cells.add(row);
         }
