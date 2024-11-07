@@ -31,7 +31,7 @@ public class GameOfLifeGUI extends JFrame {
 
         grid.initializeGrid();
 
-        timer = new Timer(500, new ActionListener() {
+        timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 grid.updateGrid();

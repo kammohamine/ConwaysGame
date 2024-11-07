@@ -69,11 +69,31 @@ class LambdaPlayer {
     + makeMove()
 }
 
+interface UserInterface {
+    - isVisible: boolean
+    + setVisibility(bool: Boolean)
+}
+
+class HomeMenuUI {
+
+}
+
+class timerUI {
+
+}
+
+class timeControlUI {
+
+}
+
 GameOfLife --> Grid : "contient une"
 Grid --* Cell : "composé de plusieurs"
 GameOfLife --> AbstractPlayer : "contient plusieurs"
 AbstractPlayer --> AIPlayer : "extends"
 AbstractPlayer --> LambdaPlayer : "extends"
+UserInterface --> HomeMenuUI : "implements"
+UserInterface --> timerUI : "implements"
+UserInterface --> timeControlUI: "implements"
 
 
 @enduml
